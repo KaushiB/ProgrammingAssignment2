@@ -1,10 +1,9 @@
-## I cannot create a create a Github repository on my local machine,
+## NOTE: I cannot create a Github repository on my local machine,
 ## because Github for MAC OS X is only compatible for 10.9 or higher
 ## versions. I have 10.8.5.
 ## Therefore, I am editing the repository online.
 
-## Put comments here that give an overall description of what your
-## functions do
+## "makeCacheMatrix" creates a matrix that can cache its inverse.
 
 makeCacheMatrix <- function(x = matrix()){
 	##Following the example given at the beginning
@@ -23,12 +22,19 @@ makeCacheMatrix <- function(x = matrix()){
 }
 
 
+## "cacheSolve" funtion computes the inverse of the matrix returned by "makeCacheMatrix" above
+## using the solve() function.
+## If the result has already been calculated then "cacheSolve" function will
+## retrieve the inverse from the cache.
+## That way the inverse of a matrix would not have to be calculated repeatedly,
+## which can be computation-heavy.
+
 cacheSolve <- function(x, ...){
 	##Following the example given at the beginning
 	##of the assignment description.
 	inv <- x$getinverse()
 	if(!is.null(inv)){
-		message("getting cached data")
+		message("Getting cached data.")
 		return(inv)
 	}
 	
